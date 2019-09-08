@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     ToggleButton exploreToggleBtn, fastestToggleBtn;
     ImageButton exploreResetImageBtn, fastestResetImageBtn;
     TextView robotStatusTextView;
-    ImageButton moveForwardImageBtn, turnRightImageBtn, moveBackwardImageBtn, turnLeftImageBtn;
+    ImageButton moveForwardImageBtn, turnRightImageBtn, turnLeftImageBtn;
     Switch phoneTiltSwitch;
     Button resetMapBtn;
     ToggleButton setStartPointToggleBtn, setWaypointToggleBtn;
@@ -469,6 +469,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                         gridMap.setAutoUpdate(true);
                         autoUpdate = true;
                         gridMap.toggleCheckedBtn("None");
+                        printMessage("SA|");
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
