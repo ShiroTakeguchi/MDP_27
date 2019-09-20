@@ -32,7 +32,7 @@ public class BluetoothConnectionService {
 
     private ConnectThread mConnectThread;
     private BluetoothDevice mDevice;
-    private UUID deviceUUID;
+    private UUID deviceUUID; 
     ProgressDialog mProgressDialog;
     Intent connectionStatus;
 
