@@ -11,12 +11,13 @@
         android:id="@+id/resetMapBtn"
         android:layout_width="150dp"
         android:layout_height="35dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/ic_button"
         android:text="@string/reset_map_button"
         android:textColor="@color/colorAccent"
         android:textSize="18sp"
         app:layout_constraintEnd_toStartOf="@+id/mapView"
-        app:layout_constraintHorizontal_bias="0.379"
+        app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/exploredImageBtn" />
 
@@ -75,6 +76,8 @@
         style="@android:style/Widget.Holo.Light.ImageButton"
         android:layout_width="45dp"
         android:layout_height="45dp"
+        android:background="@drawable/reset_border"
+        android:tint="@color/colorWhite"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.009"
         app:layout_constraintStart_toEndOf="@+id/exploreToggleBtn"
@@ -87,16 +90,18 @@
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:layout_marginStart="3dp"
+        android:background="@drawable/reset_border"
+        android:tint="@color/colorWhite"
         app:layout_constraintStart_toEndOf="@+id/fastestToggleBtn"
         app:layout_constraintTop_toBottomOf="@+id/fastestTimeTextView"
         app:srcCompat="@drawable/ic_refresh" />
 
     <ImageButton
         android:id="@+id/moveForwardImageBtn"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="452dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="48dp"
         android:background="@null"
         android:tint="@color/colorDarkBlue"
         app:layout_constraintStart_toStartOf="parent"
@@ -105,9 +110,9 @@
 
     <ImageButton
         android:id="@+id/turnLeftImageBtn"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="52dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
         android:background="@null"
         android:tint="@color/colorDarkBlue"
         app:layout_constraintEnd_toStartOf="@+id/moveForwardImageBtn"
@@ -118,9 +123,9 @@
 
     <ImageButton
         android:id="@+id/turnRightImageBtn"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="52dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
         android:background="@null"
         android:tint="@color/colorDarkBlue"
         app:layout_constraintStart_toEndOf="@+id/moveForwardImageBtn"
@@ -129,57 +134,66 @@
 
     <ImageButton
         android:id="@+id/directionChangeImageBtn"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="10dp"
+        android:background="@color/colorDarkBlue"
+        android:tint="@color/colorWhite"
         app:layout_constraintEnd_toStartOf="@+id/obstacleImageBtn"
-        app:layout_constraintHorizontal_bias="0.021"
+        app:layout_constraintHorizontal_bias="0.462"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/setWaypointToggleBtn"
         app:srcCompat="@drawable/ic_change" />
 
     <ImageButton
         android:id="@+id/exploredImageBtn"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="5dp"
+        android:background="@color/colorDarkBlue"
+        android:tint="@color/colorWhite"
         app:layout_constraintEnd_toStartOf="@+id/obstacleImageBtn"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/directionChangeImageBtn"
         app:layout_constraintTop_toBottomOf="@+id/setWaypointToggleBtn"
         app:srcCompat="@drawable/ic_check" />
 
     <ImageButton
         android:id="@+id/obstacleImageBtn"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="4dp"
+        android:background="@color/colorDarkBlue"
+        android:tint="@color/colorWhite"
         app:layout_constraintEnd_toStartOf="@+id/clearImageBtn"
         app:layout_constraintTop_toBottomOf="@+id/setWaypointToggleBtn"
         app:srcCompat="@drawable/ic_arrow_error" />
 
     <ImageButton
         android:id="@+id/clearImageBtn"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="36dp"
+        android:background="@color/colorDarkBlue"
+        android:tint="@color/colorWhite"
         app:layout_constraintEnd_toStartOf="@+id/mapView"
         app:layout_constraintTop_toBottomOf="@+id/setWaypointToggleBtn"
         app:srcCompat="@drawable/ic_clear" />
 
     <Switch
         android:id="@+id/phoneTiltSwitch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_width="144dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:splitTrack="false"
         android:text="TILT OFF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.427"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mapView" />
 
@@ -187,12 +201,13 @@
         android:id="@+id/exploreTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
         android:layout_marginTop="172dp"
         android:text="@string/explore_time"
         android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/f2Btn"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="26dp" />
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/exploreTimeTextView"
@@ -214,7 +229,7 @@
         android:text="@string/fastest_time"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.423"
+        app:layout_constraintHorizontal_bias="0.436"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/exploreTextView" />
 
@@ -232,8 +247,8 @@
 
     <TextView
         android:id="@+id/robotStatusTitleTextView"
-        android:layout_width="140dp"
-        android:layout_height="25dp"
+        android:layout_width="174dp"
+        android:layout_height="24dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/border"
@@ -242,14 +257,14 @@
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.057"
+        app:layout_constraintHorizontal_bias="0.037"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/manualAutoToggleBtn" />
 
     <TextView
         android:id="@+id/robotStatusTextView"
-        android:layout_width="140dp"
-        android:layout_height="50dp"
+        android:layout_width="177dp"
+        android:layout_height="49dp"
         android:background="@drawable/border"
         android:scrollbars="vertical"
         android:text="no status yet"
@@ -257,7 +272,7 @@
         android:textColor="@color/colorRed"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.056"
+        app:layout_constraintHorizontal_bias="0.036"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/robotStatusTitleTextView" />
 

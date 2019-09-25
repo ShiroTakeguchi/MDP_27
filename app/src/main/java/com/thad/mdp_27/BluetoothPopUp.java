@@ -403,6 +403,7 @@ public class BluetoothPopUp extends AppCompatActivity {
         Log.d(TAG, "startBTConnection: Initializing RFCOM Bluetooth Connection");
 
         mBluetoothConnection.startClientThread(device, uuid);
+
     }
 
     @Override
