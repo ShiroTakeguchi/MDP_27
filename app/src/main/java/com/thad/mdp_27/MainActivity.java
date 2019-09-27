@@ -300,6 +300,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                 else if (gridMap.getCanDrawRobot() && !gridMap.getAutoUpdate()) {
                     gridMap.moveRobot("right");
                     refreshLabel();
+                    updateStatus("turning right");
                     printMessage("AD|");
                 }
                 else
@@ -370,6 +371,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                 showLog("Clicked resetMapBtn");
                 showToast("Reseting map...");
                 gridMap.resetMap();
+                updateStatus("Stationary");
             }
         });
 
@@ -564,6 +566,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     }
 
     private void updateStatus(String message) {
+        robotStatusTextView.setText(message);
     }
 
     public static void receiveMessage(String message) {
