@@ -23,7 +23,7 @@ public class BluetoothConnectionService {
     private static final String TAG = "DebuggingTag";
 
     private static final String appName = "MDP_27";
-    private static final UUID myUUID = UUID.fromString("bc7b3c04-df3f-11e9-8a34-2a2ae2dbcce4");
+    private static final UUID myUUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
 
     private final BluetoothAdapter mBluetoothAdapter;
     Context mContext;
@@ -62,20 +62,18 @@ public class BluetoothConnectionService {
         public void run() {
             Log.d(TAG, "run: AcceptThread Running. ");
             BluetoothSocket socket = null;
-            while (true) {
-                try {
-                    Log.d(TAG, "run: RFCOM server socket start here...");
+            try {
+                Log.d(TAG, "run: RFCOM server socket start here...");
 
-                    socket = ServerSocket.accept();
-                    Log.d(TAG, "run: RFCOM server socket accepted connection.");
-                } catch (IOException e) {
-                    Log.e(TAG, "run: IOException: " + e.getMessage());
-                }
-                if (socket != null) {
-                    connected(socket, socket.getRemoteDevice());
-                }
-                Log.i(TAG, "END AcceptThread");
+                socket = ServerSocket.accept();
+                Log.d(TAG, "run: RFCOM server socket accepted connection.");
+            } catch (IOException e) {
+                Log.e(TAG, "run: IOException: " + e.getMessage());
             }
+            if (socket != null) {
+                connected(socket, socket.getRemoteDevice());
+            }
+            Log.i(TAG, "END AcceptThread");
         }
         public void cancel(){
             Log.d(TAG, "cancel: Cancelling AcceptThread");
