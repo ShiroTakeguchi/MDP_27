@@ -254,16 +254,49 @@ public class GridView extends View {
             rect = new RectF(col * cellSize, row * cellSize, (col + 1) * cellSize, (row + 1) * cellSize);
             switch (arrowCoord.get(i)[2]) {
                 case "up":
-                    arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_arrow_up);
-                    break;
-                case "right":
-                    arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_arrow_right);
+                    arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_white_arrow_up);
                     break;
                 case "down":
-                    arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_arrow_down);
+                    arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_red_arrow_down);
+                    break;
+                case "right":
+                    arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_green_arrow_right);
                     break;
                 case "left":
-                    arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_arrow_left);
+                    arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_blue_arrow_left);
+                    break;
+                case "dot":
+                    arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_yellow_dot);
+                    break;
+                case "1":
+                    arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_blue_1);
+                    break;
+                case "2":
+                    arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_green_2);
+                    break;
+                case "3":
+                    arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_red_3);
+                    break;
+                case "4":
+                    arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_white_4);
+                    break;
+                case "5":
+                    arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_yellow_5);
+                    break;
+                case "a":
+                    arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_red_a);
+                    break;
+                case "b":
+                    arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_green_b);
+                    break;
+                case "c":
+                    arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_white_c);
+                    break;
+                case "d":
+                    arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_blue_d);
+                    break;
+                case "e":
+                    arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_yellow_e);
                     break;
                 default:
                     break;

@@ -58,6 +58,7 @@ public class GridMap extends View {
     private Paint blackPaint = new Paint();
     private Paint obstacleColor = new Paint();
     private Paint robotColor = new Paint();
+    private Paint idColor = new Paint();
     private Paint endColor = new Paint();
     private Paint startColor = new Paint();
     private Paint waypointColor = new Paint();
@@ -144,9 +145,9 @@ public class GridMap extends View {
         if (!autoUpdate)
             backupMapInformation = this.getReceivedJsonObject();
         else {
-            setReceivedJsonObject(backupMapInformation);
-            backupMapInformation = null;
-            this.updateMapInformation();
+                setReceivedJsonObject(backupMapInformation);
+                backupMapInformation = null;
+                this.updateMapInformation();
         }
         GridMap.autoUpdate = autoUpdate;
     }
@@ -263,7 +264,7 @@ public class GridMap extends View {
         robotDirection = direction;
         editor.putString("direction", direction);
         editor.commit();
-        this.invalidate();;
+        this.invalidate();
     }
 
     public String getRobotDirection() {
@@ -543,16 +544,49 @@ public class GridMap extends View {
                 rect = new RectF(col * cellSize, row * cellSize, (col + 1) * cellSize, (row + 1) * cellSize);
                 switch (arrowCoord.get(i)[2]) {
                     case "up":
-                        arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_arrow_up);
-                        break;
-                    case "right":
-                        arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_arrow_right);
+                        arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_white_arrow_up);
                         break;
                     case "down":
-                        arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_arrow_down);
+                        arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_red_arrow_down);
+                        break;
+                    case "right":
+                        arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_green_arrow_right);
                         break;
                     case "left":
-                        arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_arrow_left);
+                        arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_blue_arrow_left);
+                        break;
+                    case "dot":
+                        arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_yellow_dot);
+                        break;
+                    case "1":
+                        arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_blue_1);
+                        break;
+                    case "2":
+                        arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_green_2);
+                        break;
+                    case "3":
+                        arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_red_3);
+                        break;
+                    case "4":
+                        arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_white_4);
+                        break;
+                    case "5":
+                        arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_yellow_5);
+                        break;
+                    case "a":
+                        arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_red_a);
+                        break;
+                    case "b":
+                        arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_green_b);
+                        break;
+                    case "c":
+                        arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_white_c);
+                        break;
+                    case "d":
+                        arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_blue_d);
+                        break;
+                    case "e":
+                        arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_yellow_e);
                         break;
                     default:
                         break;
@@ -628,6 +662,7 @@ public class GridMap extends View {
 
     public void refreshMap() {
         if (this.getAutoUpdate())
+
             postInvalidateDelayed(500);
     }
 
@@ -775,6 +810,7 @@ public class GridMap extends View {
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         showLog("Entering onTouchEvent");
+
         if (event.getAction() == MotionEvent.ACTION_DOWN && this.getAutoUpdate() == false) {
             int column = (int) (event.getX() / cellSize);
             int row = this.convertRow((int) (event.getY() / cellSize));
@@ -789,6 +825,7 @@ public class GridMap extends View {
                         for (int x = startCoord[0] - 1; x <= startCoord[0] + 1; x++)
                             for (int y = startCoord[1] - 1; y <= startCoord[1] + 1; y++)
                                 cells[x][y].setType("unexplored");
+                            showLog("first one");
                     }
                 }
                 else
@@ -803,6 +840,7 @@ public class GridMap extends View {
                 updateRobotAxis(column, row, "up");
                 if (setStartPointToggleBtn.isChecked())
                     setStartPointToggleBtn.toggle();
+                showLog("maybe this ran");
                 this.invalidate();
                 return true;
             }
@@ -838,6 +876,7 @@ public class GridMap extends View {
                     if (obstacleCoord.get(i)[0] == column && obstacleCoord.get(i)[1] == row)
                         obstacleCoord.remove(i);
                 this.invalidate();
+                showLog("it ran");
                 return true;
             }
         }

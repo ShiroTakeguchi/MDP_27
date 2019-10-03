@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorAccent"
     tools:context="com.thad.mdp_27.MessageBox">
 
     <include
@@ -115,6 +116,8 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:text="SEND"
+        android:background="@drawable/ic_button"
+        android:textColor="@color/colorAccent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.650"
@@ -130,6 +133,8 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:text="CLEAR"
+        android:background="@drawable/ic_button"
+        android:textColor="@color/colorAccent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.32"

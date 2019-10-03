@@ -212,7 +212,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                 }
                 else if (exploreToggleBtn.getText().equals("STOP")) {
                     showToast("Exploration timer start!");
-                    printMessage("XE");
+                    printMessage("XEXPLORE");
                     exploreTimer = System.currentTimeMillis();
                     timerHandler.postDelayed(timerRunnableExplore, 0);
                 }
@@ -247,7 +247,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                 }
                 else if (fastestToggleBtn.getText().equals("STOP")) {
                     showToast("Fastest timer start!");
-                    printMessage("XF");
+                    printMessage("XFASTEST");
                     fastestTimer = System.currentTimeMillis();
                     timerHandler.postDelayed(timerRunnableFastest, 0);
                 }
@@ -283,7 +283,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                         updateStatus("moving forward");
                     else
                         updateStatus("Unable to move forward");
-                    printMessage("AW|");
+                    printMessage("A1");
                 }
                 else
                     updateStatus("Please press 'STARTING POINT'");
@@ -301,7 +301,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                     gridMap.moveRobot("right");
                     refreshLabel();
                     updateStatus("turning right");
-                    printMessage("AD|");
+                    printMessage("AR");
                 }
                 else
                     updateStatus("Please press 'STARTING POINT'");
@@ -320,7 +320,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                     gridMap.moveRobot("left");
                     refreshLabel();
                     updateStatus("turning left");
-                    printMessage("AA|");
+                    printMessage("AL");
                 }
                 else
                     updateStatus("Please press 'STARTING POINT'");
@@ -471,7 +471,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                         gridMap.setAutoUpdate(true);
                         autoUpdate = true;
                         gridMap.toggleCheckedBtn("None");
-                        printMessage("SA|");
+                        printMessage("---Auto Updating---");
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -482,6 +482,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                         gridMap.setAutoUpdate(false);
                         autoUpdate = false;
                         gridMap.toggleCheckedBtn("None");
+                        gridMap.updateMapInformation();
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -759,8 +760,9 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                     BigInteger hexBigIntegerExplored = new BigInteger(amdString, 16);
                     String exploredString = hexBigIntegerExplored.toString(2);
 
-                    while (exploredString.length() < 300)
+                    while (exploredString.length() < 300) {
                         exploredString = "0" + exploredString;
+                    }
 
                     for (int i=0; i<exploredString.length(); i=i+15) {
                         int j=0;
@@ -885,22 +887,22 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                 showLog("Sensor Move Forward Detected");
                 gridMap.moveRobot("forward");
                 refreshLabel();
-                printMessage("AW|");
-            } else if (y > 2) {
+                printMessage("A1");
+            } /*else if (y > 2) {
                 showLog("Sensor Move Backward Detected");
                 gridMap.moveRobot("back");
                 refreshLabel();
                 printMessage("AS|");
-            } else if (x > 2) {
+            }*/ else if (x > 2) {
                 showLog("Sensor Move Left Detected");
                 gridMap.moveRobot("left");
                 refreshLabel();
-                printMessage("AA|");
+                printMessage("AL");
             } else if (x < -2) {
                 showLog("Sensor Move Right Detected");
                 gridMap.moveRobot("right");
                 refreshLabel();
-                printMessage("AD|");
+                printMessage("AR");
             }
         }
         sensorFlag = false;

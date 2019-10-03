@@ -184,19 +184,6 @@
         app:layout_constraintTop_toBottomOf="@+id/setWaypointToggleBtn"
         app:srcCompat="@drawable/ic_clear" />
 
-    <Switch
-        android:id="@+id/phoneTiltSwitch"
-        android:layout_width="144dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:splitTrack="false"
-        android:text="TILT OFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mapView" />
-
     <TextView
         android:id="@+id/exploreTextView"
         android:layout_width="wrap_content"
@@ -374,6 +361,22 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
+    <Switch
+        android:id="@+id/phoneTiltSwitch"
+        android:layout_width="142dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/ic_button"
+        android:padding="10dp"
+        android:splitTrack="false"
+        android:text="TILT OFF"
+        android:textStyle="bold"
+        android:textColor="@color/colorAccent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.509"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mapView" />
+
     <ToggleButton
         android:id="@+id/exploreToggleBtn"
         android:layout_width="120dp"
@@ -442,8 +445,8 @@
 
     <ToggleButton
         android:id="@+id/manualAutoToggleBtn"
-        android:layout_width="186dp"
-        android:layout_height="56dp"
+        android:layout_width="168dp"
+        android:layout_height="54dp"
         android:background="@drawable/ic_button"
         android:textAlignment="center"
         android:textColor="@color/colorAccent"
@@ -453,9 +456,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/exploreTextView"
         app:layout_constraintEnd_toStartOf="@+id/mapView"
+        app:layout_constraintHorizontal_bias="0.645"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/reconfigureBtn"
-        app:layout_constraintVertical_bias="0.474" />
+        app:layout_constraintVertical_bias="0.445" />
 
     <include
         android:id="@+id/toolbar"

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorAccent"
     tools:context="com.thad.mdp_27.BluetoothPopUp">
 
     <include
@@ -29,27 +30,31 @@
         android:id="@+id/bluetoothSwitch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="500dp"
-        android:layout_marginTop="8dp"
         android:splitTrack="false"
         android:text="OFF"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:padding="10dp"
+        android:background="@drawable/ic_button"
+        android:textColor="@color/colorAccent"
+        app:layout_constraintBottom_toTopOf="@+id/pairedDevicesTitleTextView"
+        app:layout_constraintEnd_toStartOf="@+id/searchBtn"
+        app:layout_constraintHorizontal_bias="0.15"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        app:layout_constraintTop_toBottomOf="@+id/bluetoothTitleTextView" />
 
     <Button
         android:id="@+id/searchBtn"
         android:layout_width="150dp"
         android:layout_height="48dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginStart="360dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/ic_button"
+        android:onClick="toggleButtonScan"
         android:text="SEARCH"
+        android:textColor="@color/colorAccent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bluetoothTitleTextView"
-        android:onClick="toggleButtonScan"/>
+        app:layout_constraintTop_toBottomOf="@+id/bluetoothTitleTextView" />
 
     <TextView
         android:id="@+id/pairedDevicesTitleTextView"
@@ -131,6 +136,8 @@
         android:layout_marginStart="360dp"
         android:layout_marginTop="8dp"
         android:text="CONNECT"
+        android:background="@drawable/ic_button"
+        android:textColor="@color/colorAccent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/otherDevicesListView" />
