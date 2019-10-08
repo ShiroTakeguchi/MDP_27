@@ -58,7 +58,6 @@ public class GridMap extends View {
     private Paint blackPaint = new Paint();
     private Paint obstacleColor = new Paint();
     private Paint robotColor = new Paint();
-    private Paint idColor = new Paint();
     private Paint endColor = new Paint();
     private Paint startColor = new Paint();
     private Paint waypointColor = new Paint();
@@ -84,8 +83,8 @@ public class GridMap extends View {
         endColor.setColor(Color.RED);
         startColor.setColor(Color.CYAN);
         waypointColor.setColor(Color.YELLOW);
-        unexploredColor.setColor(Color.WHITE);
-        exploredColor.setColor(Color.GRAY);
+        unexploredColor.setColor(Color.GRAY);
+        exploredColor.setColor(Color.WHITE);
         arrowColor.setColor(Color.BLACK);
         fastestPathColor.setColor(Color.MAGENTA);
     }
@@ -250,8 +249,8 @@ public class GridMap extends View {
         TextView yAxisTextView =  ((Activity)this.getContext()).findViewById(R.id.yAxisTextView);
         TextView directionAxisTextView =  ((Activity)this.getContext()).findViewById(R.id.directionAxisTextView);
 
-        xAxisTextView.setText(String.valueOf(col));
-        yAxisTextView.setText(String.valueOf(row));
+        xAxisTextView.setText(String.valueOf(col-1));
+        yAxisTextView.setText(String.valueOf(row-1));
         directionAxisTextView.setText(direction);
     }
 
@@ -273,13 +272,14 @@ public class GridMap extends View {
 
     private void setWaypointCoord(int col, int row) throws JSONException {
         showLog("Entering setWaypointCoord");
-        waypointCoord[0] = col;
-        waypointCoord[1] = row;
+        waypointCoord[0] = col-1;
+        waypointCoord[1] = row-1;
 
         row = this.convertRow(row);
         cells[col][row].setType("waypoint");
 
-        MainActivity.printMessage("waypoint", waypointCoord[0], waypointCoord[1]);
+        //MainActivity.printMessage("waypoint", waypointCoord[0], waypointCoord[1]);
+        MainActivity.printMessage("XWAYPOINT " + waypointCoord[0] + "," + waypointCoord[1]);
         showLog("Exiting setWaypointCoord");
     }
 
@@ -488,15 +488,15 @@ public class GridMap extends View {
         showLog("Entering drawGridNumber");
         for (int x = 1; x <= COL; x++) {
             if (x > 9)
-                canvas.drawText(Integer.toString(x), cells[x][20].startX + (cellSize / 5), cells[x][20].startY + (cellSize / 3), blackPaint);
+                canvas.drawText(Integer.toString(x-1), cells[x][20].startX + (cellSize / 5), cells[x][20].startY + (cellSize / 3), blackPaint);
             else
-                canvas.drawText(Integer.toString(x), cells[x][20].startX + (cellSize / 3), cells[x][20].startY + (cellSize / 3), blackPaint);
+                canvas.drawText(Integer.toString(x-1), cells[x][20].startX + (cellSize / 3), cells[x][20].startY + (cellSize / 3), blackPaint);
         }
         for (int y = 0; y < ROW; y++) {
-            if ((20 - y) > 9)
-                canvas.drawText(Integer.toString(20 - y), cells[0][y].startX + (cellSize / 2), cells[0][y].startY + (cellSize / 1.5f), blackPaint);
+            if ((19 - y) > 9)
+                canvas.drawText(Integer.toString(19 - y), cells[0][y].startX + (cellSize / 2), cells[0][y].startY + (cellSize / 1.5f), blackPaint);
             else
-                canvas.drawText(Integer.toString(20 - y), cells[0][y].startX + (cellSize / 1.5f), cells[0][y].startY + (cellSize / 1.5f), blackPaint);
+                canvas.drawText(Integer.toString(19 - y), cells[0][y].startX + (cellSize / 1.5f), cells[0][y].startY + (cellSize / 1.5f), blackPaint);
         }
         showLog("Exiting drawGridNumber");
     }

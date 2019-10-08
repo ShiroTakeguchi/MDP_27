@@ -209,6 +209,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                 if (exploreToggleBtn.getText().equals("EXPLORE")) {
                     showToast("Exploration timer stop!");
                     timerHandler.removeCallbacks(timerRunnableExplore);
+
                 }
                 else if (exploreToggleBtn.getText().equals("STOP")) {
                     showToast("Exploration timer start!");
