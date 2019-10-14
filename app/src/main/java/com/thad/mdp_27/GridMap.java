@@ -786,6 +786,7 @@ public class GridMap extends View {
                 MainActivity.receiveMessage(message);
         }
         showLog("Exiting updateMapInformation");
+        MainActivity.printMessage("XZ");
         this.invalidate();
     }
 

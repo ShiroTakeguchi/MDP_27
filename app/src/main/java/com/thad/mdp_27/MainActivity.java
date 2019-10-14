@@ -303,7 +303,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                     gridMap.moveRobot("right");
                     refreshLabel();
                     updateStatus("turning right");
-                    printMessage("AR");
+                    printMessage("Ar");
                 }
                 else
                     updateStatus("Please press 'STARTING POINT'");
@@ -322,7 +322,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                     gridMap.moveRobot("left");
                     refreshLabel();
                     updateStatus("turning left");
-                    printMessage("AL");
+                    printMessage("Al");
                 }
                 else
                     updateStatus("Please press 'STARTING POINT'");
@@ -806,7 +806,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             String receivedText = sharedPreferences.getString("receivedText", "") + "\n " + message;
             editor.putString("receivedText", receivedText);
             editor.commit();
-            printMessage("XZ");
         }
     };
 
@@ -900,12 +899,12 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                 showLog("Sensor Move Left Detected");
                 gridMap.moveRobot("left");
                 refreshLabel();
-                printMessage("AL");
+                printMessage("Al");
             } else if (x < -2) {
                 showLog("Sensor Move Right Detected");
                 gridMap.moveRobot("right");
                 refreshLabel();
-                printMessage("AR");
+                printMessage("Ar");
             }
         }
         sensorFlag = false;
