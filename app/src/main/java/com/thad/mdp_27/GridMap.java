@@ -732,9 +732,10 @@ public class GridMap extends View {
                     infoJsonArray = mapInformation.getJSONArray("robot");
                     infoJsonObject = infoJsonArray.getJSONObject(0);
 
-                    for (int row = ROW-1; row >= 0; row--)
+                    /*for (int row = ROW-1; row >= 0; row--)
                         for (int col = 1; col <= COL; col++)
                             cells[col][row].setType("unexplored");
+                    */
 
                     this.setStartCoord(infoJsonObject.getInt("x"), infoJsonObject.getInt("y"));
                     this.setCurCoord(infoJsonObject.getInt("x"), infoJsonObject.getInt("y"), infoJsonObject.getString("direction"));

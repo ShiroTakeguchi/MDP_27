@@ -208,6 +208,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                 Button exploreToggleBtn = (Button) view;
                 if (exploreToggleBtn.getText().equals("EXPLORE")) {
                     showToast("Exploration timer stop!");
+                    printMessage("XSTOP");
                     timerHandler.removeCallbacks(timerRunnableExplore);
 
                 }
@@ -805,6 +806,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             String receivedText = sharedPreferences.getString("receivedText", "") + "\n " + message;
             editor.putString("receivedText", receivedText);
             editor.commit();
+            printMessage("XZ");
         }
     };
 
