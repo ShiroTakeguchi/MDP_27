@@ -683,6 +683,7 @@ public class GridMap extends View {
             message = "updateMapInformation Default message";
             switch (mapInformation.names().getString(i)) {
                 case "map":
+                    MainActivity.printMessage("XY");
                     infoJsonArray = mapInformation.getJSONArray("map");
                     infoJsonObject = infoJsonArray.getJSONObject(0);
 
@@ -713,6 +714,7 @@ public class GridMap extends View {
                     }
                     showLog("updateMapInformation obstacleString: " + obstacleString);
 
+
                     int k = 0;
                     for (int row = ROW-1; row >= 0; row--)
                         for (int col = 1; col <= COL; col++)
@@ -721,10 +723,10 @@ public class GridMap extends View {
                                     this.setObstacleCoord(col, 20 - row);
                                 k++;
                             }
-
+                    //MainActivity.printMessage("XY");
                     int[] waypointCoord = this.getWaypointCoord();
-                    if (waypointCoord[0] >= 1 && waypointCoord[1] >= 1)
-                        cells[waypointCoord[0]][20-waypointCoord[1]].setType("waypoint");
+                    if (waypointCoord[0] >= 0 && waypointCoord[1] >= 0)
+                        cells[waypointCoord[0]+1][20-waypointCoord[1]-1].setType("waypoint");
                     break;
                 case "robot":
                     if (canDrawRobot)
@@ -740,6 +742,7 @@ public class GridMap extends View {
                     this.setStartCoord(infoJsonObject.getInt("x"), infoJsonObject.getInt("y"));
                     this.setCurCoord(infoJsonObject.getInt("x"), infoJsonObject.getInt("y"), infoJsonObject.getString("direction"));
                     canDrawRobot = true;
+                    //MainActivity.printMessage("XY");
                     break;
                 case "waypoint":
                     infoJsonArray = mapInformation.getJSONArray("waypoint");
@@ -786,7 +789,6 @@ public class GridMap extends View {
                 MainActivity.receiveMessage(message);
         }
         showLog("Exiting updateMapInformation");
-        MainActivity.printMessage("XZ");
         this.invalidate();
     }
 

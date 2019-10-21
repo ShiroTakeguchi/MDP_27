@@ -1,0 +1,24 @@
+Index: app/src/main/java/com/thad/mdp_27/MainActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/thad/mdp_27/MainActivity.java	(date 1567753192000)
++++ app/src/main/java/com/thad/mdp_27/MainActivity.java	(date 1567758898561)
+@@ -62,7 +62,7 @@
+     ToggleButton exploreToggleBtn, fastestToggleBtn;
+     ImageButton exploreResetImageBtn, fastestResetImageBtn;
+     TextView robotStatusTextView;
+-    ImageButton moveForwardImageBtn, turnRightImageBtn, moveBackwardImageBtn, turnLeftImageBtn;
++    ImageButton moveForwardImageBtn, turnRightImageBtn, turnLeftImageBtn;
+     Switch phoneTiltSwitch;
+     Button resetMapBtn;
+     ToggleButton setStartPointToggleBtn, setWaypointToggleBtn;
+@@ -469,6 +469,7 @@
+                         gridMap.setAutoUpdate(true);
+                         autoUpdate = true;
+                         gridMap.toggleCheckedBtn("None");
++                        printMessage("SA|");
+                     } catch (JSONException e) {
+                         e.printStackTrace();
+                     }

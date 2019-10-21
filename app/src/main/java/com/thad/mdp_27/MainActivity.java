@@ -285,7 +285,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                         updateStatus("moving forward");
                     else
                         updateStatus("Unable to move forward");
-                    printMessage("A1");
+                    printMessage("A1Y");
                 }
                 else
                     updateStatus("Please press 'STARTING POINT'");
@@ -303,7 +303,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                     gridMap.moveRobot("right");
                     refreshLabel();
                     updateStatus("turning right");
-                    printMessage("Ar");
+                    printMessage("ARY");
                 }
                 else
                     updateStatus("Please press 'STARTING POINT'");
@@ -322,7 +322,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                     gridMap.moveRobot("left");
                     refreshLabel();
                     updateStatus("turning left");
-                    printMessage("Al");
+                    printMessage("ALY");
                 }
                 else
                     updateStatus("Please press 'STARTING POINT'");
@@ -889,7 +889,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                 showLog("Sensor Move Forward Detected");
                 gridMap.moveRobot("forward");
                 refreshLabel();
-                printMessage("A1");
+                printMessage("A1Y");
             } /*else if (y > 2) {
                 showLog("Sensor Move Backward Detected");
                 gridMap.moveRobot("back");
@@ -899,12 +899,12 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                 showLog("Sensor Move Left Detected");
                 gridMap.moveRobot("left");
                 refreshLabel();
-                printMessage("Al");
+                printMessage("ALY");
             } else if (x < -2) {
                 showLog("Sensor Move Right Detected");
                 gridMap.moveRobot("right");
                 refreshLabel();
-                printMessage("Ar");
+                printMessage("ARY");
             }
         }
         sensorFlag = false;
