@@ -153,6 +153,10 @@ public class GridView extends View {
                     }
 
                     int length = infoJsonObject.getInt("length");
+                    if (length%4 == 0)
+                        length = length + 4;
+                    while (length%4 != 0)
+                        length ++;
 
                     hexStringObstacle = infoJsonObject.getString("obstacle");
                     showLog("hexStringObstacle: " + hexStringObstacle);
@@ -253,49 +257,49 @@ public class GridView extends View {
             int row = convertRow(Integer.parseInt(arrowCoord.get(i)[1]));
             rect = new RectF(col * cellSize, row * cellSize, (col + 1) * cellSize, (row + 1) * cellSize);
             switch (arrowCoord.get(i)[2]) {
-                case "up":
+                case "1":
                     arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_white_arrow_up);
                     break;
-                case "down":
+                case "2":
                     arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_red_arrow_down);
                     break;
-                case "right":
+                case "3":
                     arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_green_arrow_right);
                     break;
-                case "left":
+                case "4":
                     arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_blue_arrow_left);
                     break;
-                case "dot":
+                case "5":
                     arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_yellow_dot);
                     break;
-                case "1":
+                case "6":
                     arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_blue_1);
                     break;
-                case "2":
+                case "7":
                     arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_green_2);
                     break;
-                case "3":
+                case "8":
                     arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_red_3);
                     break;
-                case "4":
+                case "9":
                     arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_white_4);
                     break;
-                case "5":
+                case "10":
                     arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_yellow_5);
                     break;
-                case "a":
+                case "11":
                     arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_red_a);
                     break;
-                case "b":
+                case "12":
                     arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_green_b);
                     break;
-                case "c":
+                case "13":
                     arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_white_c);
                     break;
-                case "d":
+                case "14":
                     arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_blue_d);
                     break;
-                case "e":
+                case "15":
                     arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_yellow_e);
                     break;
                 default:

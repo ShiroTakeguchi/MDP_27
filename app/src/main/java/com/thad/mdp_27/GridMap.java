@@ -129,7 +129,7 @@ public class GridMap extends View {
 
     private void createCell() {
         showLog("Entering cellCreate");
-        cells = new Cell[COL + 1][ROW + 1];
+        cells = new Cell[COL +1][ROW + 1];
         this.calculateDimension();
         cellSize = this.getCellSize();
 
@@ -543,49 +543,49 @@ public class GridMap extends View {
                 int row = convertRow(Integer.parseInt(arrowCoord.get(i)[1]));
                 rect = new RectF(col * cellSize, row * cellSize, (col + 1) * cellSize, (row + 1) * cellSize);
                 switch (arrowCoord.get(i)[2]) {
-                    case "up":
+                    case "1":
                         arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_white_arrow_up);
                         break;
-                    case "down":
+                    case "2":
                         arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_red_arrow_down);
                         break;
-                    case "right":
+                    case "3":
                         arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_green_arrow_right);
                         break;
-                    case "left":
+                    case "4":
                         arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_blue_arrow_left);
                         break;
-                    case "dot":
+                    case "5":
                         arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_yellow_dot);
                         break;
-                    case "1":
+                    case "6":
                         arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_blue_1);
                         break;
-                    case "2":
+                    case "7":
                         arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_green_2);
                         break;
-                    case "3":
+                    case "8":
                         arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_red_3);
                         break;
-                    case "4":
+                    case "9":
                         arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_white_4);
                         break;
-                    case "5":
+                    case "10":
                         arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_yellow_5);
                         break;
-                    case "a":
+                    case "11":
                         arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_red_a);
                         break;
-                    case "b":
+                    case "12":
                         arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_green_b);
                         break;
-                    case "c":
+                    case "13":
                         arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_white_c);
                         break;
-                    case "d":
+                    case "14":
                         arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_blue_d);
                         break;
-                    case "e":
+                    case "15":
                         arrowBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_yellow_e);
                         break;
                     default:
@@ -666,6 +666,27 @@ public class GridMap extends View {
             postInvalidateDelayed(500);
     }
 
+    private String parseHexCharToBinary(String hexStr)
+    {
+        String fullString = "";
+        for (int i = 0; i < hexStr.length(); i++)
+        {
+            String hexChar = Character.toString(hexStr.charAt(i));
+            int hexValue = 0;
+            try
+            {
+                hexValue = Integer.parseInt(hexChar, 16);
+            }
+            catch (NumberFormatException e)
+            {
+                Log.e("ParseHexChar", e.getMessage());
+            }
+            String binary = String.format("%4s", Integer.toString(hexValue, 2)).replace(' ', '0');
+            fullString += binary;
+        }
+        return fullString;
+    }
+
     public void updateMapInformation() throws JSONException {
         showLog("Entering updateMapInformation");
         JSONObject mapInformation = this.getReceivedJsonObject();
@@ -676,9 +697,12 @@ public class GridMap extends View {
         BigInteger hexBigIntegerExplored, hexBigIntegerObstacle;
         String message;
 
-        if (mapInformation == null)
+        if (mapInformation == null) {
+            refreshMap();
+            showLog("Map Refreshing");
+            MainActivity.printMessage("XY");
             return;
-
+        }
         for(int i=0; i<mapInformation.names().length(); i++) {
             message = "updateMapInformation Default message";
             switch (mapInformation.names().getString(i)) {
@@ -703,6 +727,10 @@ public class GridMap extends View {
                     }
 
                     int length = infoJsonObject.getInt("length");
+                    if (length%4 == 0)
+                        length = length + 4;
+                    while (length%4 != 0)
+                            length ++;
 
                     hexStringObstacle = infoJsonObject.getString("obstacle");
                     showLog("updateMapInformation hexStringObstacle: " + hexStringObstacle);
@@ -716,7 +744,7 @@ public class GridMap extends View {
 
 
                     int k = 0;
-                    for (int row = ROW-1; row >= 0; row--)
+                    for (int row = ROW; row >= 0; row--)
                         for (int col = 1; col <= COL; col++)
                             if ((cells[col][row].type.equals("explored")||(cells[col][row].type.equals("robot"))) && k < obstacleString.length()) {
                                 if ((String.valueOf(obstacleString.charAt(k))).equals("1"))
@@ -729,6 +757,7 @@ public class GridMap extends View {
                         cells[waypointCoord[0]+1][20-waypointCoord[1]-1].setType("waypoint");
                     break;
                 case "robot":
+                    MainActivity.printMessage("XY");
                     if (canDrawRobot)
                         this.setOldRobotCoord(curCoord[0], curCoord[1]);
                     infoJsonArray = mapInformation.getJSONArray("robot");
@@ -763,7 +792,7 @@ public class GridMap extends View {
                     for (int j = 0; j < infoJsonArray.length(); j++) {
                         infoJsonObject = infoJsonArray.getJSONObject(j);
                         if (!infoJsonObject.getString("face").equals("dummy")) {
-                            this.setArrowCoordinate(infoJsonObject.getInt("x"), infoJsonObject.getInt("y"), infoJsonObject.getString("face"));
+                            this.setArrowCoordinate(infoJsonObject.getInt("x")+1, infoJsonObject.getInt("y")+1, infoJsonObject.getString("face"));
                             message = "Arrow:  (" + String.valueOf(infoJsonObject.getInt("x")) + "," + String.valueOf(infoJsonObject.getInt("y")) + "), face: " + infoJsonObject.getString("face");
                         }
                     }
@@ -811,7 +840,7 @@ public class GridMap extends View {
         robotStatusTextView.setText(message);
     }
 
-    @Override
+        @Override
     public boolean onTouchEvent(MotionEvent event) {
         showLog("Entering onTouchEvent");
 
@@ -929,11 +958,11 @@ public class GridMap extends View {
         List<int[]> obstacleCoord = new ArrayList<>(this.getObstacleCoord());
         List<String[]> arrowCoord = new ArrayList<>(this.getArrowCoord());
 
-        TextView robotStatusTextView =  ((Activity)this.getContext()).findViewById(R.id.robotStatusTextView);
+        TextView robotStatusTextView = ((Activity) this.getContext()).findViewById(R.id.robotStatusTextView);
 
         JSONObject map = new JSONObject();
-        for (int y=ROW-1; y>=0; y--)
-            for (int x=1; x<=COL; x++)
+        for (int y = ROW - 1; y >= 0; y--)
+            for (int x = 1; x <= COL; x++)
                 if (cells[x][y].type.equals("explored") || cells[x][y].type.equals("robot") || cells[x][y].type.equals("obstacle") || cells[x][y].type.equals("arrow"))
                     exploredString = exploredString + "1";
                 else
