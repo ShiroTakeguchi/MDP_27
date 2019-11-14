@@ -3,8 +3,8 @@ IDEA additional info:
 Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
 <+>UTF-8
 ===================================================================
---- app/src/main/java/com/thad/mdp_27/MainActivity.java	(date 1567753192000)
-+++ app/src/main/java/com/thad/mdp_27/MainActivity.java	(date 1567758898561)
+--- app/src/main/java/com/shiro/mdp_27/MainActivity.java	(date 1567753192000)
++++ app/src/main/java/com/shiro/mdp_27/MainActivity.java	(date 1567758898561)
 @@ -62,7 +62,7 @@
      ToggleButton exploreToggleBtn, fastestToggleBtn;
      ImageButton exploreResetImageBtn, fastestResetImageBtn;

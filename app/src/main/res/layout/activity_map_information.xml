@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorAccent"
-    tools:context="com.thad.mdp_27.MapInformation">
+    tools:context="com.shiro.mdp_27.MapInformation">
 
     <include
         android:id="@+id/toolbar"
@@ -29,7 +29,7 @@
 
     <view
         android:id="@+id/mapInformationView"
-        class="com.thad.mdp_27.GridView"
+        class="com.shiro.mdp_27.GridView"
         android:layout_width="500dp"
         android:layout_height="650dp"
         android:layout_marginEnd="25dp"

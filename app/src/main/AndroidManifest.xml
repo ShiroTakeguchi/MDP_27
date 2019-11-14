@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.thad.mdp_27">
+    package="com.shiro.mdp_27">
 
     <!--         added permission for bluetooth connection -->
     <uses-feature android:name="android.hardware.bluetooth" />
@@ -22,7 +22,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.thad.mdp_27.MainActivity"
+            android:name="com.shiro.mdp_27.MainActivity"
             android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,9 +30,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.thad.mdp_27.MapInformation" />
-        <activity android:name="com.thad.mdp_27.MessageBox" />
-        <activity android:name="com.thad.mdp_27.BluetoothPopUp"></activity>
+        <activity android:name="com.shiro.mdp_27.MapInformation" />
+        <activity android:name="com.shiro.mdp_27.MessageBox" />
+        <activity android:name="com.shiro.mdp_27.BluetoothPopUp"></activity>
     </application>
 
 </manifest>
